@@ -1,1 +1,35 @@
-<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><link rel='stylesheet' href='style.css'></head><body><div id='cockpit'><div id='lamp'></div><button id='pullUpButton'>PULL UP</button><div id='status'>SYSTEMS READY</div></div><audio id="pullAudio" preload="auto" src="pullup.mp3"></audio>'auto' src='assets/sounds/pullup.mp3'></audio><script src='script.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Flight Deck FD001 v0.2</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="boot">
+<h1>FLIGHT DECK <span id="cursor">█</span></h1>
+<p id="status">SYSTEMS READY</p>
+</div>
+<div id="cockpit">
+<button id="pullUp">PULL UP</button>
+<div id="ver">FD001 v0.2 Build 2</div>
+</div>
+<audio id="bootChime" src="pa-chime.mp3" preload="auto"></audio>
+<audio id="pullAudio" src="pullup.mp3" preload="auto"></audio>
+<script>
+const boot=document.getElementById('boot');
+const status=document.getElementById('status');
+const chime=document.getElementById('bootChime');
+setTimeout(()=>status.classList.add('show'),900);
+setTimeout(()=>{try{chime.play()}catch(e){}},1400);
+setTimeout(()=>boot.classList.add('hide'),2200);
+const btn=document.getElementById('pullUp');
+const snd=document.getElementById('pullAudio');
+btn.onclick=async()=>{
+ btn.classList.add('active');
+ try{snd.currentTime=0;await snd.play();}catch(e){}
+ setTimeout(()=>btn.classList.remove('active'),1800);
+};
+</script>
+</body></html>

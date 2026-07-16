@@ -1,0 +1,9 @@
+FD001 v0.2 Build 2
+Replace:
+- index.html
+- style.css
+
+Required assets:
+- AB7945D0-4709-4D5D-986A-C558F340707C.png
+- pullup.mp3
+- pa-chime.mp3 (rename your announcement chime to this filename)
